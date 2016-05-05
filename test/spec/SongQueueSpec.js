@@ -28,7 +28,10 @@ describe('SongQueue', function() {
 
     it('does nothing if it is not the only song in the song queue', function() {
       var songQueue = new SongQueue(songData1);
+      console.log(songQueue); 
       songQueue.add(songData2);
+      console.log(songQueue); 
+      
       expect(playSpy).to.have.not.been.called;
     });
   });

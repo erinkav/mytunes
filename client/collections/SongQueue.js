@@ -10,14 +10,16 @@ var SongQueue = Backbone.Collection.extend({
   list: [],
 
   playFirst: function() {
-    console.log(this); 
-    this.play(this.list[0]); 
+    this.list[0].play; 
     this.list.splice(0, 1); 
   },
 
   add: function(song) {
-    this.list.push(song); 
-    this.playFirst(); 
-
+    if (this.list.length === 0) {
+      this.list.push(song); 
+      this.playFirst();
+    } else {
+      this.list.push(song); 
+    }
   }
 });
