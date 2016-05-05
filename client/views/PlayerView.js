@@ -7,9 +7,20 @@ var PlayerView = Backbone.View.extend({
 
   initialize: function() {
     this.on('change', this.render, this); 
-    this.$el.on('ended', function() { 
-      console.log('ended'); //http://backbonejs.org/#View-events
-    }); 
+    // debugger; 
+    // this.el.on('ended', function() { 
+    //   console.log(this.$el.ended); 
+    //   this.model.ended; //http://backbonejs.org/#View-events
+    // }); 
+  },
+
+  events: {
+    'ended': "triggerEnd"
+  }, 
+
+  triggerEnd: function(e) {
+    debugger; 
+      this.model.ended; 
   },
 
   setSong: function(song) {
