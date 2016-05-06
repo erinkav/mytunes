@@ -6,33 +6,18 @@ var PlayerView = Backbone.View.extend({
   el: '<audio controls autoplay />',
 
   initialize: function() {
-    this.on('this.change()', this.render, this);
-    var func = function() { this.model.ended(); }; 
-    this.$el.on('ended', func.bind(this)); 
-
-    // debugger; 
-    // this.el.on('ended', function() { 
-    //   console.log(this.$el.ended); 
-    //   this.model.ended; //http://backbonejs.org/#View-events
-    // }); 
+    this.$el.on('ended', function() { this.model.ended(); }.bind(this)); 
   },
-
-  // events: {
-  //   'ended': "triggerEnd"
-  // }, 
-
-  // triggerEnd: function(e) {
-  //   debugger; 
-  //     this.model.ended; 
-  // },
 
   setSong: function(song) {
     this.model = song;
+    if (!this.model) {
+      this.el.pause(); 
+    }
     this.render();
   },
 
   render: function() {
-    console.log(this.$el); 
     return this.$el.attr('src', this.model ? this.model.get('url') : '');
   }
 

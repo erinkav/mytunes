@@ -1,0 +1,12 @@
+body {
+	background-color: white; 
+}
+audio {
+	width: 500px;
+	display: center;
+}
+
+.jumbotron {
+	background-color: #e74c3c;
+	color: white;
+}
